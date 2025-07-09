@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 4492557699765906311, guid: 60d17cd17be3fa84e9239fe394af425a,
         type: 3}
       propertyPath: m_Name
-      value: FireballProjectiles
+      value: IceballProjectiles
       objectReference: {fileID: 0}
     - target: {fileID: 6387249761642237402, guid: 60d17cd17be3fa84e9239fe394af425a,
         type: 3}
@@ -134,6 +134,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2598318851274290065, guid: 85e0fa3cecacf86478bb29da26b9f75c,
         type: 3}
+    - target: {fileID: 7623098063485133187, guid: 60d17cd17be3fa84e9239fe394af425a,
+        type: 3}
+      propertyPath: lifeAfterImpact
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623098063485133187, guid: 60d17cd17be3fa84e9239fe394af425a,
+        type: 3}
+      propertyPath: destroyOnHit.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623098063485133187, guid: 60d17cd17be3fa84e9239fe394af425a,
+        type: 3}
+      propertyPath: destroyOnHit.Array.data[0]
+      value: 
+      objectReference: {fileID: 266089076873356590}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5739217169459703584, guid: 60d17cd17be3fa84e9239fe394af425a, type: 3}
@@ -159,6 +174,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 915332585927215583}
     m_Modifications:
+    - target: {fileID: 3288246471049919407, guid: c010541b216137240bde60349595f2fc,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8432317251180515433, guid: c010541b216137240bde60349595f2fc,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8432317251264659796, guid: c010541b216137240bde60349595f2fc,
         type: 3}
       propertyPath: m_Name
@@ -244,11 +269,27 @@ PrefabInstance:
       propertyPath: m_power
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8432317252058232413, guid: c010541b216137240bde60349595f2fc,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8432317252111220113, guid: c010541b216137240bde60349595f2fc,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c010541b216137240bde60349595f2fc, type: 3}
+--- !u!1 &266089076873356590 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8432317252058232412, guid: c010541b216137240bde60349595f2fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 8553687293954741106}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &266089078204043815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8432317251264659797, guid: c010541b216137240bde60349595f2fc,

@@ -9747,7 +9747,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 301cf03abcb5cb74b962537265e1e485, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14706,6 +14705,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 460040916859630970}
+  - component: {fileID: 6027137164285171826}
   m_Layer: 0
   m_Name: Arrow Effect
   m_TagString: Untagged
@@ -14732,6 +14732,18 @@ Transform:
   - {fileID: 6750535466331466512}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6027137164285171826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6782056314920602498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e907ee618103bbe46a340de597401fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7784310592806272676
 GameObject:
   m_ObjectHideFlags: 0
@@ -19580,7 +19592,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: bdb7d8876fb2e6241b85c93f2b755f91, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

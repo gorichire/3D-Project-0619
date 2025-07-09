@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2598318851274290060}
+  - component: {fileID: 8676541895656722131}
   m_Layer: 0
   m_Name: Iceball Effect
   m_TagString: Untagged
@@ -32,6 +33,18 @@ Transform:
   - {fileID: 671450289833248928}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8676541895656722131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2598318851274290065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e907ee618103bbe46a340de597401fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8643084141768480714
 PrefabInstance:
   m_ObjectHideFlags: 0

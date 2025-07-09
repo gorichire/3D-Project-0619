@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-C:\Users\USER\Desktop\Practice\Practice0619
-=======
-C:\Users\worn4\OneDrive\바탕 화면\unity\Practice\Practice0619
->>>>>>> 581f7c58374c82848faeaf673296508b79ca0461
+C:\Users\worn4\OneDrive\바탕 화면\unity\3DProject0619\3D-Project-0619\Practice0619
