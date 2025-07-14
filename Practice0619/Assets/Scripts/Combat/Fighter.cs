@@ -8,10 +8,11 @@ using RPG.Attributes;
 using RPG.Stats;
 using System;
 using RPG.Utils;
+using Newtonsoft.Json.Linq;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction , ISaveable , IModifierProvider
+    public class Fighter : MonoBehaviour, IAction , ISaveable , IModifierProvider , IJsonSaveable
     {
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform rightHandTransform  = null;
@@ -189,6 +190,18 @@ namespace RPG.Combat
 
             EquipWeapon(weapon);
         }
+        public JToken CaptureAsJToken()
+        {
+            return JToken.FromObject(currentWeaponConfig.name);
+        }
+
+        public void RestoreFromJToken(JToken state)
+        {
+            string weaponName = state.ToObject<string>();
+            WeaponConfig weapon = UnityEngine.Resources.Load<WeaponConfig>(weaponName);
+            EquipWeapon(weapon);
+        }
+
 
     }
 }

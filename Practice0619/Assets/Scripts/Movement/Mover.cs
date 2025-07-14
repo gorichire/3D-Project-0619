@@ -6,10 +6,11 @@ using RPG.Core;
 using RPG.Saving;
 using Unity.VisualScripting;
 using RPG.Attributes;
+using Newtonsoft.Json.Linq;
 
 namespace RPG.Movement
 {
-    public class Mover : MonoBehaviour , IAction , ISaveable
+    public class Mover : MonoBehaviour , IAction , ISaveable , IJsonSaveable
     {
         [SerializeField] Transform target;
         [SerializeField] float maxSpeed = 6f;
@@ -93,5 +94,21 @@ namespace RPG.Movement
             transform.position = position.ToVector();
             navMeshAgent.enabled = true;
         }
+
+        public JToken CaptureAsJToken()
+        {
+            return JToken.FromObject(transform.position);
+        }
+
+        public void RestoreFromJToken(JToken state)
+        {
+            navMeshAgent.enabled = false;
+            transform.position = state.ToObject<Vector3>();
+            navMeshAgent.enabled = true;
+            GetComponent<ActionSchduler>().CancelCurrentAction();
+
+        }
+
+
     }
 }
