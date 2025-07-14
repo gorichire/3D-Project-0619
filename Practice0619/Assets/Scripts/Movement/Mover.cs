@@ -5,6 +5,7 @@ using UnityEngine.AI;
 using RPG.Core;
 using RPG.Saving;
 using Unity.VisualScripting;
+using RPG.Attributes;
 
 namespace RPG.Movement
 {
@@ -12,13 +13,19 @@ namespace RPG.Movement
     {
         [SerializeField] Transform target;
         [SerializeField] float maxSpeed = 6f;
+        [SerializeField] float maxNavPathLength = 40f;
 
         NavMeshAgent navMeshAgent;
         Health Health;
-        private void Start()
+
+        private void Awake()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
-            Health = GetComponent<Health>();    
+            Health = GetComponent<Health>();
+        }
+        private void Start()
+        {
+
         }
         void Update()
         {
@@ -31,6 +38,16 @@ namespace RPG.Movement
         {
             GetComponent<ActionSchduler>().StartAction(this);
             MoveTo(destination , speedFraction);
+        }
+        public bool CanMoveTo(Vector3 destination)
+        {
+            NavMeshPath path = new NavMeshPath();
+            bool hasPath = NavMesh.CalculatePath(transform.position, destination, NavMesh.AllAreas, path);
+            if (!hasPath) return false;
+            if (path.status != NavMeshPathStatus.PathComplete) return false;
+            if (GetPathLength(path) > maxNavPathLength) return false;
+
+            return true;
         }
 
         public void MoveTo(Vector3 destination, float speedFraction)
@@ -52,6 +69,17 @@ namespace RPG.Movement
             float speed = localVelocity.z;
             GetComponent<Animator>().SetFloat("forwardSpeed", speed);
         }
+        private float GetPathLength(NavMeshPath path)
+        {
+            float total = 0;
+            if (path.corners.Length < 2) return total;
+            for (int i = 0; i < path.corners.Length - 1; i++)
+            {
+                total += Vector3.Distance(path.corners[i], path.corners[i + 1]);
+            }
+
+            return total;
+        }
 
         public object CaptureState()
         {
@@ -61,9 +89,9 @@ namespace RPG.Movement
         public void RestoreState(object state)
         {
             SerializableVector3 position = (SerializableVector3)state;
-            GetComponent<NavMeshAgent>().enabled = false;
+            navMeshAgent.enabled = false;
             transform.position = position.ToVector();
-            GetComponent<NavMeshAgent>().enabled = true;
+            navMeshAgent.enabled = true;
         }
     }
 }

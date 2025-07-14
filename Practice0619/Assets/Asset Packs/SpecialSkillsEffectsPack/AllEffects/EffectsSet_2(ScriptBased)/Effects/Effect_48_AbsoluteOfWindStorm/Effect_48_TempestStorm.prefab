@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8231054166987611038}
   - component: {fileID: 8231054166987611039}
   m_Layer: 0
-  m_Name: Effect_48_TempestStormPlane
+  m_Name: Effect_48_StormVortexPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8231054167877097618}
   m_Layer: 0
-  m_Name: Effect_48_TempestStorm
+  m_Name: Effect_48_VortexStorm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 8231054168298322073}
   - component: {fileID: 8231054168298322074}
   m_Layer: 0
-  m_Name: Effect_48_TempestStormMake
+  m_Name: Effect_48_StormVortexMake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

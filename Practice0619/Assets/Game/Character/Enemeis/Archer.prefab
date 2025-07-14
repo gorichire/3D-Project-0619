@@ -79,13 +79,40 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 43561d771d5cbb04ea0d62dad8b5029b,
         type: 2}
+    - target: {fileID: 7023801203829297888, guid: 86c1a75b3e8d50e47b252ec8dce22d0c,
+        type: 3}
+      propertyPath: leftHandTransform
+      value: 
+      objectReference: {fileID: 6831885308893168117}
+    - target: {fileID: 7023801203829297888, guid: 86c1a75b3e8d50e47b252ec8dce22d0c,
+        type: 3}
+      propertyPath: rightHandTransform
+      value: 
+      objectReference: {fileID: 7544332748810613357}
     - target: {fileID: 8650321431937292808, guid: 86c1a75b3e8d50e47b252ec8dce22d0c,
         type: 3}
       propertyPath: chaseDistance
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8650321431937292808, guid: 86c1a75b3e8d50e47b252ec8dce22d0c,
+        type: 3}
+      propertyPath: patrolSpeedFraction
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86c1a75b3e8d50e47b252ec8dce22d0c, type: 3}
+--- !u!4 &6831885308893168117 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7695651890932427340, guid: 86c1a75b3e8d50e47b252ec8dce22d0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3748061290839321529}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7544332748810613357 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6679140935561730516, guid: 86c1a75b3e8d50e47b252ec8dce22d0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3748061290839321529}
+  m_PrefabAsset: {fileID: 0}

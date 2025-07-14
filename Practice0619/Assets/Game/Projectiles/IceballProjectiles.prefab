@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4128569052219672075, guid: 60d17cd17be3fa84e9239fe394af425a,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 151fa7778dc9cf14ba998127d188283b, type: 3}
     - target: {fileID: 4492557699765906311, guid: 60d17cd17be3fa84e9239fe394af425a,
         type: 3}
       propertyPath: m_Name
@@ -43,6 +48,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6855824841252005622, guid: 60d17cd17be3fa84e9239fe394af425a,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 136a21330c4e00a4a89a64b01e15607f, type: 3}
     - target: {fileID: 7037691174462233391, guid: 60d17cd17be3fa84e9239fe394af425a,
         type: 3}
       propertyPath: m_Parameters.colorGradient.key0.b

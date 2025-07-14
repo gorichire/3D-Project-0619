@@ -6,11 +6,7 @@ namespace RPG.Core
 {
     public class DestroyAfterEffect : MonoBehaviour
     {
-        private void Start()
-        {
-
-        }
-
+        [SerializeField] GameObject targetToDestroy = null;
         void Update()
         {
             ParticleSystem[] particleSystems = GetComponentsInChildren<ParticleSystem>();
@@ -23,7 +19,14 @@ namespace RPG.Core
                 }
             }
 
-            Destroy(gameObject);
+            if (targetToDestroy != null)
+            {
+                Destroy(targetToDestroy);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
