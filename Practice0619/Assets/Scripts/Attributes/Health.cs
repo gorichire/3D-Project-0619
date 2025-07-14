@@ -11,7 +11,7 @@ using UnityEngine.Events;
 
 namespace RPG.Attributes
 {
-    public class Health : MonoBehaviour , ISaveable , IJsonSaveable
+    public class Health : MonoBehaviour , ISaveable /*, IJsonSaveable*/
     {
         [SerializeField] float regenerationPercentage = 100;
         [SerializeField] UnityEvent<float> takeDamage;
@@ -124,19 +124,19 @@ namespace RPG.Attributes
                 Die();
             }
         }
-        public JToken CaptureAsJToken()
-        {
-            return JToken.FromObject(healthPoints.value);
-        }
+        //public JToken CaptureAsJToken()
+        //{
+        //    return JToken.FromObject(healthPoints.value);
+        //}
 
-        public void RestoreFromJToken(JToken state)
-        {
-            healthPoints.value = state.ToObject<float>();
-            if (healthPoints.value <= 0)
-            {
-                Die();
-            }
-        }
+        //public void RestoreFromJToken(JToken state)
+        //{
+        //    healthPoints.value = state.ToObject<float>();
+        //    if (healthPoints.value <= 0)
+        //    {
+        //        Die();
+        //    }
+        //}
 
     }
 }

@@ -38,6 +38,7 @@ namespace RPG.Movement
         public void StartMoveAction(Vector3 destination , float speedFraction)
         {
             GetComponent<ActionSchduler>().StartAction(this);
+            navMeshAgent.ResetPath(); // 이전 경로 제거
             MoveTo(destination , speedFraction);
         }
         public bool CanMoveTo(Vector3 destination)

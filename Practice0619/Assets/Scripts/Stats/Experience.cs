@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace RPG.Stats
 {
-    public class Experience : MonoBehaviour, ISaveable , IJsonSaveable
+    public class Experience : MonoBehaviour, ISaveable/* , IJsonSaveable*/
     {
         [SerializeField] float experiencePoints = 0;
 
@@ -29,15 +29,15 @@ namespace RPG.Stats
         {
             experiencePoints = (float)state;
         }
-        public JToken CaptureAsJToken()
-        {
-            return JToken.FromObject(experiencePoints);
-        }
+        //public JToken CaptureAsJToken()
+        //{
+        //    return JToken.FromObject(experiencePoints);
+        //}
 
-        public void RestoreFromJToken(JToken state)
-        {
-            experiencePoints = state.ToObject<float>();
-        }
+        //public void RestoreFromJToken(JToken state)
+        //{
+        //    experiencePoints = state.ToObject<float>();
+        //}
 
     }
 }
