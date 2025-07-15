@@ -20,6 +20,7 @@ namespace RPG.Combat
         [SerializeField] WeaponConfig defaultWeapon = null;
 
         Health target;
+        Weapon equippedWeapon;
         float timeSinceLastAttack = Mathf.Infinity;
         WeaponConfig currentWeaponConfig;
         LazyValue<Weapon> currentWeapon;
@@ -59,8 +60,18 @@ namespace RPG.Combat
 
         public void EquipWeapon(WeaponConfig weapon)
         {
+            //currentWeaponConfig = weapon;
+            //currentWeapon.value = AttachWeapon(weapon);
+
             currentWeaponConfig = weapon;
-            currentWeapon.value = AttachWeapon(weapon);
+            Weapon weaponInstance = AttachWeapon(weapon); 
+            currentWeapon.value = weaponInstance;
+
+            var swordHitbox = weaponInstance.GetComponentInChildren<SwordHitbox>();
+            if (swordHitbox != null)
+            {
+                swordHitbox.SetOwner(gameObject);
+            }
         }
         private Weapon AttachWeapon(WeaponConfig weapon)
         {
@@ -161,6 +172,10 @@ namespace RPG.Combat
             {
                 yield return currentWeaponConfig.GetPercentageBonus();
             }
+        }
+        public Weapon GetCurrentWeapon()
+        {
+            return equippedWeapon;
         }
 
         public object CaptureState()

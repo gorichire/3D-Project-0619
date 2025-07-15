@@ -14,6 +14,7 @@ namespace RPG.Control
     public class PlayerController : MonoBehaviour
     {
         Health health;
+        private PlayerCombat playerCombat;
 
         [System.Serializable]
         struct CursorMapping
@@ -29,7 +30,8 @@ namespace RPG.Control
         //[SerializeField] float maxNavPathLength;
         private void Awake()
         {
-               health = GetComponent<Health>(); 
+               health = GetComponent<Health>();
+            playerCombat = GetComponent<PlayerCombat>();
         }
         private void Update()
         {
@@ -40,10 +42,40 @@ namespace RPG.Control
                 return;
             }
 
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (playerCombat != null)
+                {
+                    playerCombat.TryComboAttack(); // 콤보 입력 처리
+                }
+                return;
+            }
+
+            if (HandleKeyboardMovement()) return; //
+
             if (InteractWithComponent()) return;
             if (InteractWithMovement()) { return; }
 
             SetCursor(CursorType.None);
+        }
+
+
+        private bool HandleKeyboardMovement()
+        {
+            float h = Input.GetAxisRaw("Horizontal");
+            float v = Input.GetAxisRaw("Vertical");
+
+            Vector3 inputDir = new Vector3(h, 0, v);
+
+            if (inputDir.magnitude < 0.1f) return false;
+
+            GetComponent<Fighter>().Cancel();
+
+            // 카메라 기준 방향 회전 적용
+            Vector3 moveDir = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0) * inputDir;
+
+            GetComponent<Mover>().MoveWithDirection(moveDir);
+            return true;
         }
 
         private bool InteractWithUI()

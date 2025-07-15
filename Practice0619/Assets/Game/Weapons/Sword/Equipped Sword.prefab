@@ -200,6 +200,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 524810735065506628}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 1d407a6008b748b4f9fec2ed72ffde73,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4974888972449522222}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 1d407a6008b748b4f9fec2ed72ffde73,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 398167118320524150}
   m_SourcePrefab: {fileID: 100100000, guid: 1d407a6008b748b4f9fec2ed72ffde73, type: 3}
 --- !u!4 &2496356376537267762 stripped
 Transform:
@@ -240,3 +248,38 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  weaponTag: 
+--- !u!65 &4974888972449522222
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2496356376537686546}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.08116493, y: 1.1987948, z: 0.11785464}
+  m_Center: {x: -0.000000057742, y: -0.38854158, z: 0.013855046}
+--- !u!114 &398167118320524150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2496356376537686546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a22590b70f22404fa8644f759b66fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10

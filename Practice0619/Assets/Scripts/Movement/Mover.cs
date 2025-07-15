@@ -19,6 +19,12 @@ namespace RPG.Movement
         NavMeshAgent navMeshAgent;
         Health Health;
 
+        Vector3 lastFrameDelta = Vector3.zero;
+        bool isKeyboardMoving = false;
+        float currentSpeed = 0f;
+        float speedSmoothVelocity = 0f;
+
+
         private void Awake()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
@@ -32,7 +38,44 @@ namespace RPG.Movement
         {
             navMeshAgent.enabled = !Health.IsDead();
 
-            UpdateAnimator();
+            Vector3 velocityToUse = Vector3.zero;
+
+            if (navMeshAgent.hasPath && navMeshAgent.velocity.sqrMagnitude > 0.01f)
+            {
+                velocityToUse = navMeshAgent.velocity;
+            }
+            else if (isKeyboardMoving)
+            {
+                velocityToUse = transform.forward * maxSpeed;
+            }
+
+            UpdateAnimator(velocityToUse);
+
+            // 
+            if (!Input.anyKey || Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
+            {
+                isKeyboardMoving = false;
+            }
+        }
+        public void MoveWithDirection(Vector3 direction)
+        {
+            isKeyboardMoving = direction.sqrMagnitude > 0.01f;
+
+            if (!isKeyboardMoving)
+            {
+                lastFrameDelta = Vector3.zero;
+                return;
+            }
+
+            navMeshAgent.ResetPath(); // 付快胶 格利瘤 力芭
+
+            // 角力 捞悼 贸府
+            Vector3 moveDelta = direction.normalized * maxSpeed * Time.deltaTime;
+            navMeshAgent.Move(moveDelta);
+
+            // 雀傈 贸府
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
         }
 
         public void StartMoveAction(Vector3 destination , float speedFraction)
@@ -64,12 +107,17 @@ namespace RPG.Movement
             navMeshAgent.isStopped = true;
         }
 
-        private void UpdateAnimator()
+
+        private void UpdateAnimator(Vector3 velocity)
         {
-            Vector3 velocity = navMeshAgent.velocity;
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
-            float speed = localVelocity.z;
-            GetComponent<Animator>().SetFloat("forwardSpeed", speed);
+            float speed = localVelocity.magnitude;
+
+            float normalizedSpeed = Mathf.Clamp01(speed / maxSpeed);
+            currentSpeed = Mathf.SmoothDamp(currentSpeed, normalizedSpeed, ref speedSmoothVelocity, 0.1f);
+
+            float finalSpeed = Mathf.Lerp(0f, 3.29f, currentSpeed);
+            GetComponent<Animator>().SetFloat("forwardSpeed", finalSpeed);
         }
         private float GetPathLength(NavMeshPath path)
         {
