@@ -33,7 +33,9 @@ namespace RPG.Combat
 
         private Weapon SetupDefaultWeapon()
         {
-            return AttachWeapon(defaultWeapon);
+            Weapon weaponInstance = AttachWeapon(defaultWeapon);
+            equippedWeapon = weaponInstance;  
+            return weaponInstance;
         }
         private void Start()
         {
@@ -64,13 +66,20 @@ namespace RPG.Combat
             //currentWeapon.value = AttachWeapon(weapon);
 
             currentWeaponConfig = weapon;
-            Weapon weaponInstance = AttachWeapon(weapon); 
+            Weapon weaponInstance = AttachWeapon(weapon);
             currentWeapon.value = weaponInstance;
+            equippedWeapon = weaponInstance;
 
             var swordHitbox = weaponInstance.GetComponentInChildren<SwordHitbox>();
             if (swordHitbox != null)
             {
                 swordHitbox.SetOwner(gameObject);
+
+                var playerCombat = GetComponent<PlayerCombat>();
+                if (playerCombat != null)
+                {
+                    playerCombat.SetSwordHitbox(swordHitbox);
+                }
             }
         }
         private Weapon AttachWeapon(WeaponConfig weapon)
@@ -175,6 +184,7 @@ namespace RPG.Combat
         }
         public Weapon GetCurrentWeapon()
         {
+            //Debug.Log($"[Fighter] GetCurrentWeapon() ¡æ {equippedWeapon}");
             return equippedWeapon;
         }
 

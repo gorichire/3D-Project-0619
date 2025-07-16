@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 639766612999157720}
   - component: {fileID: 7645046540024898342}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hit Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,6 +140,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Equipped Sword
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1d407a6008b748b4f9fec2ed72ffde73, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1d407a6008b748b4f9fec2ed72ffde73, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -248,7 +252,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  weaponTag: 
+  weaponTag: Sword
 --- !u!65 &4974888972449522222
 BoxCollider:
   m_ObjectHideFlags: 0

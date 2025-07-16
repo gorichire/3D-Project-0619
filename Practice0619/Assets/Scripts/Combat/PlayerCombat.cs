@@ -39,7 +39,6 @@ namespace RPG.Combat
                 }
                 else if (comboIndex == 0)
                 {
-                    Debug.Log("콤보 시작: comboIndex 1 트리거 발동");
                     comboIndex = 1;
                     animator.SetInteger("comboIndex", comboIndex);
                     animator.SetTrigger("comboAttack");
@@ -53,8 +52,14 @@ namespace RPG.Combat
         }
 
         // 애니메이션 이벤트로 호출
-        public void EnableHitbox() => swordHitbox.Activate();
-        public void DisableHitbox() => swordHitbox.Deactivate();
+        public void EnableHitbox()
+        {
+            swordHitbox?.Activate();
+        }
+        public void DisableHitbox()
+        {
+            swordHitbox?.Deactivate();
+        }
 
         // 애니메이션 이벤트: 콤보 입력을 받을 수 있는 시점
         public void AllowCombo()
@@ -79,5 +84,10 @@ namespace RPG.Combat
                 inputBuffered = false;
             }
         }
+        public void SetSwordHitbox(SwordHitbox hitbox)
+        {
+            swordHitbox = hitbox;
+        }
     }
+
 }
