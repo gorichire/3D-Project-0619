@@ -10,6 +10,7 @@ namespace RPG.Combat
         Weapon currentWeapon;
 
         public GameObject attackEffectPrefab;
+        public GameObject combo4EffectPrefab;
         int comboIndex = 0;
         bool canCombo = false;
         bool inputBuffered = false;
@@ -67,11 +68,21 @@ namespace RPG.Combat
             animator.SetTrigger("comboAttack");
             animator.SetInteger("comboIndex", index); // Blend Tree or 상태 분기용
         }
-        public void SpawnAttackEffect(Quaternion rotation)
+        public void SpawnAttackEffect(float yRotation)
         {
             if (attackEffectPrefab == null) return;
+            Quaternion rot = transform.rotation * Quaternion.Euler(0, 0, yRotation);
+            Instantiate(attackEffectPrefab, transform.position, rot);
+        }
 
-            Instantiate(attackEffectPrefab, transform.position, rotation);
+        public void SpawnCombo4Effect(float offset = 1f)
+        {
+            if (combo4EffectPrefab == null) return;
+            // 플레이어 앞쪽(정면) 방향으로 offset만큼 이동한 위치
+            Vector3 spawnPos = transform.position + transform.forward * offset + transform.up * offset;
+            Quaternion rot = transform.rotation; // 그냥 플레이어 회전값만 적용
+
+            Instantiate(combo4EffectPrefab, spawnPos, rot);
         }
 
         // 애니메이션 이벤트로 호출
