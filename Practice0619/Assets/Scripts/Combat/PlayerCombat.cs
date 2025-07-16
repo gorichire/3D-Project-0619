@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace RPG.Combat
 {
@@ -8,6 +9,7 @@ namespace RPG.Combat
         SwordHitbox swordHitbox;
         Weapon currentWeapon;
 
+        public GameObject attackEffectPrefab;
         int comboIndex = 0;
         bool canCombo = false;
         bool inputBuffered = false;
@@ -27,6 +29,7 @@ namespace RPG.Combat
             currentWeapon = GetComponent<Fighter>().GetCurrentWeapon();
         }
 
+
         public void TryComboAttack()
         {
             currentWeapon = GetComponent<Fighter>().GetCurrentWeapon();
@@ -45,10 +48,30 @@ namespace RPG.Combat
                 }
             }
         }
+        void OnAnimatorMove()
+        {
+            if (IsComboAttacking())
+            {
+                transform.position += animator.deltaPosition;
+                transform.rotation = animator.rootRotation; // 회전도 Root Motion에 맞추고 싶으면
+            }
+        }
+        public bool IsComboAttacking()
+        {
+            // 애니메이터에서 콤보 공격에 "ComboAttack" 태그를 반드시 지정할 것!
+            AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
+            return info.IsTag("ComboAttack") && !animator.IsInTransition(0);
+        }
         void PlayComboAnimation(int index)
         {
             animator.SetTrigger("comboAttack");
             animator.SetInteger("comboIndex", index); // Blend Tree or 상태 분기용
+        }
+        public void SpawnAttackEffect(Quaternion rotation)
+        {
+            if (attackEffectPrefab == null) return;
+
+            Instantiate(attackEffectPrefab, transform.position, rotation);
         }
 
         // 애니메이션 이벤트로 호출

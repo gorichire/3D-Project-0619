@@ -59,6 +59,7 @@ namespace RPG.Movement
         }
         public void MoveWithDirection(Vector3 direction)
         {
+
             isKeyboardMoving = direction.sqrMagnitude > 0.01f;
 
             if (!isKeyboardMoving)

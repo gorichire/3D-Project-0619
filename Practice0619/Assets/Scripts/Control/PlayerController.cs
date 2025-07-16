@@ -41,13 +41,16 @@ namespace RPG.Control
                 SetCursor(CursorType.None);
                 return;
             }
+            var playerCombat = GetComponent<PlayerCombat>();
 
             if (Input.GetMouseButtonDown(0))
             {
-                if (playerCombat != null)
-                {
-                    playerCombat.TryComboAttack(); // 콤보 입력 처리
-                }
+                playerCombat?.TryComboAttack();
+                return;
+            }
+
+            if (playerCombat != null && playerCombat.IsComboAttacking())
+            {
                 return;
             }
 
@@ -62,6 +65,7 @@ namespace RPG.Control
 
         private bool HandleKeyboardMovement()
         {
+
             float h = Input.GetAxisRaw("Horizontal");
             float v = Input.GetAxisRaw("Vertical");
 

@@ -7,8 +7,6 @@ namespace RPG.Combat
 {
     public class SwordHitbox : MonoBehaviour
     {
-        [SerializeField] float damage = 10f;
-
         private GameObject owner;
         private HashSet<Health> alreadyHit = new HashSet<Health>();
 
@@ -38,6 +36,9 @@ namespace RPG.Combat
 
             // 중복 타격 방지
             if (alreadyHit.Contains(targetHealth)) return;
+
+            var fighter = owner.GetComponent<Fighter>();
+            float damage = fighter.CalculateAttackDamage(); 
 
             targetHealth.TakeDamage(owner, damage);
             alreadyHit.Add(targetHealth);

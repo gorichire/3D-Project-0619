@@ -24,9 +24,11 @@ namespace RPG.Combat
         float timeSinceLastAttack = Mathf.Infinity;
         WeaponConfig currentWeaponConfig;
         LazyValue<Weapon> currentWeapon;
+        PlayerCombat playerCombat;
 
         private void Awake()
         {
+            PlayerCombat playerCombat = GetComponent<PlayerCombat>();
             currentWeaponConfig = defaultWeapon;
             currentWeapon = new LazyValue<Weapon>(SetupDefaultWeapon);
         }
@@ -69,13 +71,19 @@ namespace RPG.Combat
             Weapon weaponInstance = AttachWeapon(weapon);
             currentWeapon.value = weaponInstance;
             equippedWeapon = weaponInstance;
+            Transform effectPoint = currentWeapon.value.transform.Find("EffectPoint");
 
+            // 여기서 PlayerCombat에도 할당!
+            var playerCombat = GetComponent<PlayerCombat>();
+            if (playerCombat != null)
+            {
+                playerCombat.SetSwordHitbox(weaponInstance.GetComponentInChildren<SwordHitbox>());
+            }
             var swordHitbox = weaponInstance.GetComponentInChildren<SwordHitbox>();
             if (swordHitbox != null)
             {
                 swordHitbox.SetOwner(gameObject);
 
-                var playerCombat = GetComponent<PlayerCombat>();
                 if (playerCombat != null)
                 {
                     playerCombat.SetSwordHitbox(swordHitbox);
@@ -186,6 +194,11 @@ namespace RPG.Combat
         {
             //Debug.Log($"[Fighter] GetCurrentWeapon() → {equippedWeapon}");
             return equippedWeapon;
+        }
+        public float CalculateAttackDamage()
+        {
+            // 오른쪽 클릭 공격에 쓰는 공식 (예시)
+            return currentWeaponConfig.GetDamage() + GetComponent<BaseStats>().GetStat(Stat.Damage);
         }
 
         public object CaptureState()

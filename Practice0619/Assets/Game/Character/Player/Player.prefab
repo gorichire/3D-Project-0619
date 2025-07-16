@@ -3043,7 +3043,6 @@ MonoBehaviour:
     hotspot: {x: 0, y: 0}
   maxNavMeshProjectionDistance: 1
   raycastRadius: 1
-  aoeRange: 3
 --- !u!54 &4152117734404336955
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3109,6 +3108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3a7bbd05527774b86708c1e5bbbf2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackEffectPrefab: {fileID: 7196101468527216612, guid: 906dd373f871b7c46a4a3f5b30f2114f,
+    type: 3}
+  effectSpawnPoint: {fileID: 0}
 --- !u!1001 &3662506965777764638
 PrefabInstance:
   m_ObjectHideFlags: 0
