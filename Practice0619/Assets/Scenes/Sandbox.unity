@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.25666955, g: 0.6895589, b: 0.8191326, a: 1}
+  m_IndirectSpecularColor: {r: 0.25669372, g: 0.68957794, b: 0.8192681, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4322,6 +4322,11 @@ PrefabInstance:
       propertyPath: patrolPath
       value: 
       objectReference: {fileID: 540426922}
+    - target: {fileID: 8650321431937292808, guid: 86c1a75b3e8d50e47b252ec8dce22d0c,
+        type: 3}
+      propertyPath: patrolSpeedFraction
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4771,7 +4776,18 @@ PrefabInstance:
       propertyPath: patrolPath
       value: 
       objectReference: {fileID: 1315059948}
-    m_RemovedComponents: []
+    - target: {fileID: 8650321431937292808, guid: 86c1a75b3e8d50e47b252ec8dce22d0c,
+        type: 3}
+      propertyPath: waypointTolerance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8650321431937292808, guid: 86c1a75b3e8d50e47b252ec8dce22d0c,
+        type: 3}
+      propertyPath: patrolSpeedFraction
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1804940905057412566, guid: 86c1a75b3e8d50e47b252ec8dce22d0c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -14582,28 +14598,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8264d38330b69044a8a7dff1b33b4fa7, type: 3}
---- !u!1 &2075567354 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 49108103110638843, guid: 0dd47f19c7c3eca4bbb9486ed6a2b55c,
-    type: 3}
-  m_PrefabInstance: {fileID: 6964720055141800032}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2075567369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2075567354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e68e32f95ba8a240a45c6b983982d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unarmedWeapon: {fileID: 11400000, guid: 3f2577d3364eaa2458eeb42abaf89e0c, type: 2}
-  swordWeapon: {fileID: 11400000, guid: 90572be8c5b2ab840917c8a11451ce4d, type: 2}
-  bowWeapon: {fileID: 11400000, guid: 6b271736a8152ae4a979af68682c63e3, type: 2}
-  iceWeapon: {fileID: 11400000, guid: 66bae3938674c9247a33628bf3d1df06, type: 2}
 --- !u!1001 &2097572818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15147,6 +15141,11 @@ PrefabInstance:
         type: 3}
       propertyPath: uniqueIdentifier
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2097138882422645019, guid: 0dd47f19c7c3eca4bbb9486ed6a2b55c,
+        type: 3}
+      propertyPath: isPlayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2097138882422645019, guid: 0dd47f19c7c3eca4bbb9486ed6a2b55c,
         type: 3}
@@ -15796,11 +15795,7 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1881266985}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 49108103110638843, guid: 0dd47f19c7c3eca4bbb9486ed6a2b55c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2075567369}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0dd47f19c7c3eca4bbb9486ed6a2b55c, type: 3}
 --- !u!1001 &9010069150692952341
 PrefabInstance:

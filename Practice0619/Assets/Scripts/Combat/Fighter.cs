@@ -69,16 +69,25 @@ namespace RPG.Combat
 
             currentWeaponConfig = weapon;
             Weapon weaponInstance = AttachWeapon(weapon);
+
+            if (weaponInstance == null)
+            {
+                if (weapon != defaultWeapon) EquipWeapon(defaultWeapon);
+                return;
+            }
+
             currentWeapon.value = weaponInstance;
             equippedWeapon = weaponInstance;
-            Transform effectPoint = currentWeapon.value.transform.Find("EffectPoint");
 
-            // 여기서 PlayerCombat에도 할당!
+            Transform effectPoint = weaponInstance.transform.Find("EffectPoint");
+
+
             var playerCombat = GetComponent<PlayerCombat>();
             if (playerCombat != null)
             {
                 playerCombat.SetSwordHitbox(weaponInstance.GetComponentInChildren<SwordHitbox>());
             }
+
             var swordHitbox = weaponInstance.GetComponentInChildren<SwordHitbox>();
             if (swordHitbox != null)
             {
@@ -212,7 +221,6 @@ namespace RPG.Combat
 
             if (string.IsNullOrEmpty(weaponName))
             {
-                Debug.LogWarning("Weapon name is empty. Using default.");
                 EquipWeapon(defaultWeapon);
                 return;
             }
@@ -221,7 +229,6 @@ namespace RPG.Combat
 
             if (weapon == null)
             {
-                //Debug.LogWarning($"Weapon not found in Resources: '{weaponName}'. Using default.");
                 EquipWeapon(defaultWeapon);
                 return;
             }

@@ -15,6 +15,7 @@ namespace RPG.Movement
         [SerializeField] Transform target;
         [SerializeField] float maxSpeed = 6f;
         [SerializeField] float maxNavPathLength = 40f;
+        [SerializeField] private bool isPlayer = false;
 
         NavMeshAgent navMeshAgent;
         Health Health;
@@ -44,17 +45,23 @@ namespace RPG.Movement
             {
                 velocityToUse = navMeshAgent.velocity;
             }
-            else if (isKeyboardMoving)
+            else if (isPlayer && isKeyboardMoving)
             {
                 velocityToUse = transform.forward * maxSpeed;
             }
-
+            else
+            {
+                velocityToUse = Vector3.zero;
+            }
             UpdateAnimator(velocityToUse);
 
             // 
-            if (!Input.anyKey || Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
+            if (isPlayer)
             {
-                isKeyboardMoving = false;
+                if (!Input.anyKey || Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
+                {
+                    isKeyboardMoving = false;
+                }
             }
         }
         public void MoveWithDirection(Vector3 direction)

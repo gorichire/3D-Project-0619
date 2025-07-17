@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90765f73947a6954ebc0466a6fec5826, type: 3}
   m_Name: Iceball
   m_EditorClassIdentifier: 
-  animatorOverride: {fileID: 0}
-  equippedPrefab: {fileID: 0}
+  animatorOverride: {fileID: 22100000, guid: 016ea50d481ffd345bb52328e94ccd47, type: 2}
+  equippedPrefab: {fileID: -6782421628747166904, guid: a339d5163bb06dc47a3def06d1eb3328,
+    type: 3}
   weaponRange: 20
   weaponDamage: 20
+  percentageBonus: 0
   isRightHanded: 1
   projectile: {fileID: 922305828748592066, guid: b8daea8f2e9b07e4f82c99bc15a25c1c,
     type: 3}

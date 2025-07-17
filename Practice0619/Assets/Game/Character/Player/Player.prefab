@@ -2906,6 +2906,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6196763739105612835, guid: c8837be8daebe76499b6112c04439f13,
         type: 3}
+      propertyPath: isPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196763739105612835, guid: c8837be8daebe76499b6112c04439f13,
+        type: 3}
       propertyPath: maxSpeed
       value: 10
       objectReference: {fileID: 0}
@@ -3000,6 +3005,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5169307524947724552}
+    - targetCorrespondingSourceObject: {fileID: 5209447563872160195, guid: c8837be8daebe76499b6112c04439f13,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3923434053269749563}
   m_SourcePrefab: {fileID: 100100000, guid: c8837be8daebe76499b6112c04439f13, type: 3}
 --- !u!4 &2007088740253822776 stripped
 Transform:
@@ -3112,6 +3121,22 @@ MonoBehaviour:
     type: 3}
   combo4EffectPrefab: {fileID: 4595425574784306021, guid: 0c98cc7365651214c9b6de6ff7505950,
     type: 3}
+--- !u!114 &3923434053269749563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7571071893490919622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e68e32f95ba8a240a45c6b983982d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unarmedWeapon: {fileID: 11400000, guid: 3f2577d3364eaa2458eeb42abaf89e0c, type: 2}
+  swordWeapon: {fileID: 11400000, guid: 90572be8c5b2ab840917c8a11451ce4d, type: 2}
+  bowWeapon: {fileID: 11400000, guid: 6b271736a8152ae4a979af68682c63e3, type: 2}
+  iceWeapon: {fileID: 11400000, guid: 66bae3938674c9247a33628bf3d1df06, type: 2}
 --- !u!1001 &3662506965777764638
 PrefabInstance:
   m_ObjectHideFlags: 0
