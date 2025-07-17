@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3521114, g: 0.724135, b: 0.9581087, a: 1}
+  m_IndirectSpecularColor: {r: 0.3521173, g: 0.72388566, b: 0.9584319, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2480,6 +2480,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Data.m_DampRotation
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772764217405589851, guid: 1efc73617bfc22c429cf1a57834fc727,
+        type: 3}
+      propertyPath: m_Name
+      value: HeadAimRig
       objectReference: {fileID: 0}
     - target: {fileID: 8893962783519540245, guid: 1efc73617bfc22c429cf1a57834fc727,
         type: 3}
