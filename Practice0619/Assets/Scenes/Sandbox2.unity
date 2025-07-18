@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3521173, g: 0.72388566, b: 0.9584319, a: 1}
+  m_IndirectSpecularColor: {r: 0.3521114, g: 0.724135, b: 0.9581087, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2426,6 +2426,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7080607585109762106, guid: 1efc73617bfc22c429cf1a57834fc727,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2034495913}
+    - target: {fileID: 7080607585109762106, guid: 1efc73617bfc22c429cf1a57834fc727,
+        type: 3}
+      propertyPath: poisonProjectilePrefab
+      value: 
+      objectReference: {fileID: 1116864497331948426, guid: 625006b2b08cfa94b8e6f408cd5d3471,
+        type: 3}
     - target: {fileID: 7198782713108452720, guid: 1efc73617bfc22c429cf1a57834fc727,
         type: 3}
       propertyPath: m_Data.m_DampPosition
